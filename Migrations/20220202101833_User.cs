@@ -72,13 +72,13 @@ namespace Travelingyu.Migrations
                 columns: table => new
                 {
                     KodePelanggan = table.Column<string>(type: "varchar(767)", nullable: false),
-                    NamaPelanggan = table.Column<string>(type: "text", nullable: true),
-                    JenisKelamin = table.Column<string>(type: "text", nullable: true),
-                    DaerahAsal = table.Column<string>(type: "text", nullable: true),
-                    NomorKtp = table.Column<string>(type: "text", nullable: true),
-                    Propesi = table.Column<string>(type: "text", nullable: true),
-                    NomorTelpon = table.Column<string>(type: "text", nullable: true),
-                    Type = table.Column<string>(type: "text", nullable: true)
+                    NamaPelanggan = table.Column<string>(type: "text", nullable: false),
+                    JenisKelamin = table.Column<string>(type: "text", nullable: false),
+                    DaerahAsal = table.Column<string>(type: "text", nullable: false),
+                    NomorKtp = table.Column<string>(type: "text", nullable: false),
+                    Propesi = table.Column<string>(type: "text", nullable: false),
+                    NomorTelpon = table.Column<string>(type: "text", nullable: false),
+                    Type = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -159,25 +159,20 @@ namespace Travelingyu.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tb_TrBus",
+                name: "Tb_TransaksiBus",
                 columns: table => new
                 {
                     NoTransaksi = table.Column<string>(type: "varchar(767)", nullable: false),
-                    KodeBus1 = table.Column<string>(type: "varchar(767)", nullable: true),
                     KodePelanggan1 = table.Column<string>(type: "varchar(767)", nullable: true),
+                    Dari = table.Column<string>(type: "text", nullable: true),
+                    Ke = table.Column<string>(type: "text", nullable: true),
                     Jumlah = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tb_TrBus", x => x.NoTransaksi);
+                    table.PrimaryKey("PK_Tb_TransaksiBus", x => x.NoTransaksi);
                     table.ForeignKey(
-                        name: "FK_Tb_TrBus_Tb_Bus_KodeBus1",
-                        column: x => x.KodeBus1,
-                        principalTable: "Tb_Bus",
-                        principalColumn: "KodeBus",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Tb_TrBus_Tb_Pelanggan_KodePelanggan1",
+                        name: "FK_Tb_TransaksiBus_Tb_Pelanggan_KodePelanggan1",
                         column: x => x.KodePelanggan1,
                         principalTable: "Tb_Pelanggan",
                         principalColumn: "KodePelanggan",
@@ -276,13 +271,8 @@ namespace Travelingyu.Migrations
                 column: "NamaKelas1");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tb_TrBus_KodeBus1",
-                table: "Tb_TrBus",
-                column: "KodeBus1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Tb_TrBus_KodePelanggan1",
-                table: "Tb_TrBus",
+                name: "IX_Tb_TransaksiBus_KodePelanggan1",
+                table: "Tb_TransaksiBus",
                 column: "KodePelanggan1");
 
             migrationBuilder.CreateIndex(
@@ -294,13 +284,16 @@ namespace Travelingyu.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Tb_Bus");
+
+            migrationBuilder.DropTable(
                 name: "Tb_TiketKA");
 
             migrationBuilder.DropTable(
                 name: "Tb_Transaksi");
 
             migrationBuilder.DropTable(
-                name: "Tb_TrBus");
+                name: "Tb_TransaksiBus");
 
             migrationBuilder.DropTable(
                 name: "Tb_Tujuan");
@@ -319,9 +312,6 @@ namespace Travelingyu.Migrations
 
             migrationBuilder.DropTable(
                 name: "Tb_Pesawat");
-
-            migrationBuilder.DropTable(
-                name: "Tb_Bus");
 
             migrationBuilder.DropTable(
                 name: "Tb_Pelanggan");

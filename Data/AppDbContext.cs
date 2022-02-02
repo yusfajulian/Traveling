@@ -23,9 +23,9 @@ namespace Travelingyu.Data
         public virtual DbSet<Bus> Tb_Bus { get; set; }
         public virtual DbSet<KelasKereta> Tb_KelasKereta{ get; set; }
         public virtual DbSet<Tiket> Tb_TiketKA { get; set; }
-        public virtual DbSet<TransaksiBus> Tb_TrBus { get; set; }
         public virtual DbSet<Tujuan> Tb_Tujuan { get; set; }
         public virtual DbSet<Roles> Tb_Roles{ get; set; }
         public virtual DbSet<User> Tb_User { get; set; }
+        public virtual DbSet<TrBus> Tb_TransaksiBus { get; set; }
     }
 }

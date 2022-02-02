@@ -1,0 +1,69 @@
+﻿@model Pelanggan
+@{
+    Layout = "_LayoutAkun";
+}
+
+<h4 class="text-center">Isi Data Pelanggan</h4>
+<hr />
+<br />
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" method="post">
+            @*<div class="form-group">
+            <label asp-for="KodePelanggan" class="control-label"></label>
+            <input asp-for="KodePelanggan" placeholder="Masukan Kode Pelanggan" class="form-control" />
+            <span asp-validation-for="KodePelanggan" class="text-danger"></span>
+        </div>*@
+
+            <div class="form-group">
+                <label asp-for="NamaPelanggan" class="control-label"></label>
+                <input asp-for="NamaPelanggan" placeholder="Masukan nama pelanggan" class="form-control" />
+                <span asp-validation-for="NamaPelanggan" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="JenisKelamin" class="control-label"></label>
+                <input asp-for="JenisKelamin" placeholder="Masukan jenis kelamin" class="form-control" />
+                <span asp-validation-for="JenisKelamin" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DaerahAsal" class="control-label"></label>
+                <input asp-for="DaerahAsal" placeholder="Masukan daerahb asal" class="form-control" />
+                <span asp-validation-for="DaerahAsal" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NomorKtp" class="control-label"></label>
+                <input asp-for="NomorKtp" class="form-control" placeholder="Masukan NO ktp" />
+                <span asp-validation-for="NomorKtp" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Propesi" class="control-label"></label>
+                <input asp-for="Propesi" class="form-control" placeholder="Masukan propesi anda" />
+                <span asp-validation-for="Propesi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NomorTelpon" class="control-label"></label>
+                <input asp-for="NomorTelpon" class="form-control" placeholder="Masukan NO telp" />
+                <span asp-validation-for="NomorTelpon" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" placeholder="Masukan type tiket" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <input asp-controller="Home" asp-action="Index" type="submit" value="Cancel" class="btn btn-primary float-xl-right" />
+            </div>
+        </form>
+    </div>
+</div>

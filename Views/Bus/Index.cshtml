@@ -1,0 +1,319 @@
+﻿@using pertemuan1.Helper
+@model IEnumerable<Tujuan>
+
+
+<h3 style="color:white">Cek harga Tiket Bus anda!</h3>
+<br />
+<form method="post">
+    <div class="row g-4">
+        <div class="form-select col-lg-4 col-sm-12">
+            <div class="label-flex">
+                <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/a/a750aa2f45ee71f1cecf259c2c9f2cc2.svg">
+                <label for="meal_preference" style="color:white;">Dari</label>
+            </div>
+            <div class="select-list">
+                <select name="meal_preference" id="dari" class="form-control">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.NamaTujuan">@item.NamaTujuan</option>
+                    }
+                </select>
+            </div><br />
+            <div class="label-flex">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-id="IcSystemCalendar"><path d="M7 2V5M17 2V5M3 8H21M11.5 11.5H12.5V12.5H11.5V11.5ZM11.5 16.5H12.5V17.5H11.5V16.5ZM16.5 11.5H17.5V12.5H16.5V11.5ZM6.5 16.5H7.5V17.5H6.5V16.5ZM5 21H19C20.1046 21 21 20.1046 21 19V6C21 4.89543 20.1046 4 19 4H5C3.89543 4 3 4.89543 3 6V19C3 20.1046 3.89543 21 5 21Z" stroke="#687176" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 11.5V12.5H6.5V11.5H7.5Z" stroke="#0194F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <label for="meal_preference" style="color:white;">Tanggal Pergi</label>
+            </div>
+            <input class="form-control" type="date" id="date" />
+        </div>
+
+        <div class="form-select col-lg-4 col-sm-12">
+            <div class="label-flex">
+                <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/f/ffd32ada5ea1e894746ef4ac731d05d4.svg">
+                <label for="meal_preference" style="color:white;">Ke</label>
+            </div>
+            <div class="select-list">
+                <select name="meal_preference" id="ke" class="form-control">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.NamaTujuan">@item.NamaTujuan</option>
+                    }
+                </select>
+
+            </div><br /><br /><br />
+
+            <h5 id="hasil" style="color:white;"></h5><br />
+        </div>
+
+        <div class="form-select col-lg-4 col-sm-12">
+            <div class="label-flex">
+                <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/a/accfeba7f43edb20e4858113abf756d2.svg" width="24" height="24">
+                <label for="meal_preference" style="color:white;">Jumlah Kursi</label>
+            </div>
+            <input type="number" placeholder="Lebih Dari 7 Tahun" class="form-control" id="jumlah" /><br /><br />
+
+            <button class="float-lg-right" id="but" type="button">Cek Hargga</button><br /><br />
+            @{ string cek = User.GetUsername();
+                if (cek != "")
+                {
+                    <button class="float-lg-right" asp-controller="Bus" asp-action="Create">Pesan</button>
+                }
+            }
+        </div><br />
+    </div>
+</form>
+
+<script>
+    document.getElementById("but");
+    addEventListener("click", tampilkan_harga);
+
+    function tampilkan_harga() {
+        var dari = document.getElementById("dari").value;
+        var ke = document.getElementById("ke").value;
+        var jumlah = document.getElementById("jumlah").value;
+        var hasil;
+
+       @*if (dari) {
+            if (ke) {
+                @{
+                    foreach (var item in Model)
+                    {
+                        var dari = @item.IdTujuan;
+                        var ke = @item.Jenis;
+
+
+                    }
+                }
+
+        }
+
+        if (dari == "Yogyakarta" && ke == "Bandung" || ke == "Yogyakarta" && dari == "Bandung") {
+            hasil = 130000 * jumlah;
+            document.getElementById("hasil").innerHTML = hasil;
+        } else {
+            document.getElementById("hasil").innerHTML = hasil;
+        }*@
+
+        if (dari == "Yogyakarta") {
+            if (ke == "Bandung") {
+                hasil = "Rp."+300000 * jumlah;
+            } else if (ke == "Jakarta") {
+                hasil = "Rp."+175000 * jumlah;
+            } else if (ke == "Surabaya") {
+                hasil = "Rp."+188000 * jumlah;
+            } else if (ke == "Malang") {
+                hasil = "Rp."+170000 * jumlah;
+            } else if (ke == "Semarang") {
+                hasil ="Rp."+ 75000 * jumlah;
+            } else if (ke == "Palembang") {
+                hasil = "Rp."+455000 * jumlah;
+            } else if (ke == "Pekanbaru") {
+                hasil = "Rp."+600000 * jumlah;
+            } else if (ke == "Banda Aceh") {
+                hasil = "Rp."+0;
+            } else if (ke == "Lampung") {
+                hasil = "Rp."+400000 * jumlah;
+            } else {
+                hasil = "Rp."+0;
+            }
+        } else if (dari == "Bandung") {
+            if (ke == "Yogyakarta") {
+                hasil = "Rp."+130000 * jumlah;
+            } else if (ke == "Jakarta") {
+                hasil = "Rp."+188000 * jumlah;
+            } else if (ke == "Surabaya") {
+                hasil = "Rp."+460000 * jumlah;
+            } else if (ke == "Malang") {
+                hasil = "Rp."+280000 * jumlah;
+            } else if (ke == "Semarang") {
+                hasil = "Rp."+236000 * jumlah;
+            } else if (ke == "Palembang") {
+                hasil = "Rp."+603000 * jumlah;
+            } else if (ke == "Pekanbaru") {
+                hasil = "Rp."+625000 * jumlah;
+            } else if (ke == "Banda Aceh") {
+                hasil = "Rp."+0;
+            } else if (ke == "Lampung") {
+                hasil = "Rp."+525000 * jumlah;
+            } else {
+                hasil = "Rp."+0;
+            }
+        } else if (dari == "Jakarta") {
+            if (ke == "Yogyakarta") {
+                hasil = "Rp."+247000 * jumlah;
+            } else if (ke == "Bandung") {
+                hasil ="Rp."+ 99000 * jumlah;
+            } else if (ke == "Surabaya") {
+                hasil = "Rp."+290000 * jumlah;
+            } else if (ke == "Malang") {
+                hasil = "Rp."+360000 * jumlah;
+            } else if (ke == "Semarang") {
+                hasil = "Rp."+225000 * jumlah;
+            } else if (ke == "Palembang") {
+                hasil = "Rp."+551000 * jumlah;
+            } else if (ke == "Pekanbaru") {
+                hasil = "Rp."+280000 * jumlah;
+            } else if (ke == "Banda Aceh") {
+                hasil = "Rp."+880000 * jumlah;
+            } else if (ke == "Lampung") {
+                hasil = "Rp."+284000 * jumlah;
+            } else {
+                hasil = "Rp."+0;
+            }
+        } else if (dari == "Surabaya") {
+            if (ke == "Yogyakarta") {
+                hasil = "Rp."+188000 * jumlah;
+            } else if (ke == "Bandung") {
+                hasil = "Rp."+250000 * jumlah;
+            } else if (ke == "Jakarta") {
+                hasil = "Rp."+285000 * jumlah;
+            } else if (ke == "Malang") {
+                hasil = "Rp."+103000 * jumlah;
+            } else if (ke == "Semarang") {
+                hasil = "Rp."+200000 * jumlah;
+            } else if (ke == "Palembang") {
+                hasil = "Rp."+450000 * jumlah;
+            } else if (ke == "Pekanbaru") {
+                hasil = "Rp."+0;
+            } else if (ke == "Banda Aceh") {
+                hasil = "Rp."+0;
+            } else if (ke == "Lampung") {
+                hasil = "Rp."+528000 * jumlah;
+            } else {
+                hasil = "Rp."+0;
+            }
+        } else if (dari == "Malang") {
+            if (ke == "Yogyakarta") {
+                hasil = "Rp."+150000 * jumlah;
+            } else if (ke == "Bandung") {
+                hasil = "Rp."+270000 * jumlah;
+            } else if (ke == "Jakarta") {
+                hasil = "Rp."+316000 * jumlah;
+            } else if (ke == "Surabaya") {
+                hasil = "Rp."+118000 * jumlah;
+            } else if (ke == "Semarang") {
+                hasil = "Rp."+170000 * jumlah;
+            } else if (ke == "Palembang") {
+                hasil = "Rp."+0;
+            } else if (ke == "Pekanbaru") {
+                hasil = "Rp."+0;
+            } else if (ke == "Banda Aceh") {
+                hasil = "Rp."+0;
+            } else if (ke == "Lampung") {
+                hasil = "Rp."+513000 * jumlah;
+            } else {
+                hasil = "Rp."+0;
+            }
+        } else if (dari == "Semarang") {
+            if (ke == "Yogyakarta") {
+                hasil ="Rp."+ 85000 * jumlah;
+            } else if (ke == "Bandung") {
+                hasil = "Rp."+250000 * jumlah;
+            } else if (ke == "Jakarta") {
+                hasil = "Rp."+170000 * jumlah;
+            } else if (ke == "Surabaya") {
+                hasil = "Rp."+200000 * jumlah;
+            } else if (ke == "Malang") {
+                hasil = "Rp."+210000 * jumlah;
+            } else if (ke == "Palembang") {
+                hasil = "Rp."+600000 * jumlah;
+            } else if (ke == "Pekanbaru") {
+                hasil = "Rp."+0;
+            } else if (ke == "Banda Aceh") {
+                hasil = "Rp."+0;
+            } else if (ke == "Lampung") {
+                hasil = "Rp."+500000 * jumlah;
+            } else {
+                hasil = "Rp."+0;
+            }
+        } else if (dari == "Palembang") {
+            if (ke == "Yogyakarta") {
+                hasil = "Rp."+600000 * jumlah;
+            } else if (ke == "Bandung") {
+                hasil = "Rp."+500000 * jumlah;
+            } else if (ke == "Jakarta") {
+                hasil = "Rp."+500000 * jumlah;
+            } else if (ke == "Surabaya") {
+                hasil = "Rp."+0;
+            } else if (ke == "Malang") {
+                hasil = "Rp."+0;
+            } else if (ke == "Semarang") {
+                hasil = "Rp."+600000 * jumlah;
+            } else if (ke == "Pekanbaru") {
+                hasil = "Rp."+300000 * jumlah;
+            } else if (ke == "Banda Aceh") {
+                hasil = "Rp."+0;
+            } else if (ke == "Lampung") {
+                hasil = "Rp."+250000 * jumlah;
+            } else {
+                hasil = "Rp."+0;
+            }
+        } else if (dari == "Pekanbaru") {
+            if (ke == "Yogyakarta") {
+                hasil = "Rp."+650000 * jumlah;
+            } else if (ke == "Bandung") {
+                hasil = "Rp."+567000 * jumlah;
+            } else if (ke == "Jakarta") {
+                hasil = "Rp."+600000 * jumlah;
+            } else if (ke == "Surabaya") {
+                hasil = "Rp."+0;
+            } else if (ke == "Malang") {
+                hasil = "Rp."+0;
+            } else if (ke == "Semarang") {
+                hasil = "Rp."+0;
+            } else if (ke == "Palembang") {
+                hasil = "Rp."+459000 * jumlah;
+            } else if (ke == "Banda Aceh") {
+                hasil = "Rp."+0;
+            } else if (ke == "Lampung") {
+                hasil = "Rp."+490000 * jumlah;
+            } else {
+                hasil = "Rp."+0;
+            }
+        } else if (dari == "Banda Aceh Pekanbaru") {
+            if (ke == "Yogyakarta") {
+                hasil = "Rp."+0;
+            } else if (ke == "Bandung") {
+                hasil = "Rp."+0;
+            } else if (ke == "Jakarta") {
+                hasil = "Rp."+0;
+            } else if (ke == "Surabaya") {
+                hasil = "Rp."+0;
+            } else if (ke == "Malang") {
+                hasil = "Rp."+0;
+            } else if (ke == "Semarang") {
+                hasil = "Rp."+0;
+            } else if (ke == "Palembang") {
+                hasil = "Rp."+0;
+            } else if (ke == "Pekanbaru") {
+                hasil = "Rp."+0;
+            } else if (ke == "Lampung") {
+                hasil = "Rp."+0;
+            } else {
+                hasil = "Rp."+0;
+            }
+        } else if (dari == "Lampung") {
+            if (ke == "Yogyakarta") {
+                hasil = "Rp."+400000 * jumlah;
+            } else if (ke == "Bandung") {
+                hasil = "Rp."+250000 * jumlah;
+            } else if (ke == "Jakarta") {
+                hasil = "Rp."+400000 * jumlah;
+            } else if (ke == "Surabaya") {
+                hasil = "Rp."+486000 * jumlah;
+            } else if (ke == "Malang") {
+                hasil = "Rp."+486000 * jumlah;
+            } else if (ke == "Semarang") {
+                hasil = "Rp."+369000 * jumlah;
+            } else if (ke == "Palembang") {
+                hasil = "Rp."+250000 * jumlah;
+            } else if (ke == "Banda Aceh") {
+                hasil = "Rp."+0;
+            } else if (ke == "Pekanbaru") {
+                hasil = "Rp."+468000 * jumlah;
+            } else {
+                hasil = "Rp."+0;
+            }
+        }
+        document.getElementById("hasil").innerHTML =hasil;
+    }
+</script>

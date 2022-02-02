@@ -108,24 +108,31 @@ namespace Travelingyu.Migrations
                         .HasColumnType("varchar(767)");
 
                     b.Property<string>("DaerahAsal")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("JenisKelamin")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NamaPelanggan")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NomorKtp")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NomorTelpon")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Propesi")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Type")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("KodePelanggan");
@@ -239,27 +246,28 @@ namespace Travelingyu.Migrations
                     b.ToTable("Tb_TiketKA");
                 });
 
-            modelBuilder.Entity("Travelingyu.Models.TransaksiBus", b =>
+            modelBuilder.Entity("Travelingyu.Models.TrBus", b =>
                 {
                     b.Property<string>("NoTransaksi")
                         .HasColumnType("varchar(767)");
 
+                    b.Property<string>("Dari")
+                        .HasColumnType("text");
+
                     b.Property<int>("Jumlah")
                         .HasColumnType("int");
 
-                    b.Property<string>("KodeBus1")
-                        .HasColumnType("varchar(767)");
+                    b.Property<string>("Ke")
+                        .HasColumnType("text");
 
                     b.Property<string>("KodePelanggan1")
                         .HasColumnType("varchar(767)");
 
                     b.HasKey("NoTransaksi");
 
-                    b.HasIndex("KodeBus1");
-
                     b.HasIndex("KodePelanggan1");
 
-                    b.ToTable("Tb_TrBus");
+                    b.ToTable("Tb_TransaksiBus");
                 });
 
             modelBuilder.Entity("Travelingyu.Models.Tujuan", b =>
@@ -352,17 +360,11 @@ namespace Travelingyu.Migrations
                     b.Navigation("NamaKelas");
                 });
 
-            modelBuilder.Entity("Travelingyu.Models.TransaksiBus", b =>
+            modelBuilder.Entity("Travelingyu.Models.TrBus", b =>
                 {
-                    b.HasOne("Travelingyu.Models.Bus", "KodeBus")
-                        .WithMany()
-                        .HasForeignKey("KodeBus1");
-
                     b.HasOne("Travelingyu.Models.Pelanggan", "KodePelanggan")
                         .WithMany()
                         .HasForeignKey("KodePelanggan1");
-
-                    b.Navigation("KodeBus");
 
                     b.Navigation("KodePelanggan");
                 });
