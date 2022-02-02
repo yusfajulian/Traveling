@@ -18,7 +18,7 @@ namespace Travelingyu.Controllers
 
         public IActionResult Index()
         {
-            var data = _context.Tb_Kelas.ToList();
+            var data = _context.Tb_Kereta.ToList();
             return View(data);
         }
     }

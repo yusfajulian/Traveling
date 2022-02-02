@@ -31,6 +31,8 @@ namespace Travelingyu.Controllers
         {
             if (ModelState.IsValid)
             {
+
+
                 _context.Add(data);
                 _context.SaveChanges();
                 await _context.SaveChangesAsync();
@@ -85,6 +87,9 @@ namespace Travelingyu.Controllers
                     if (username.Roles.Id == "1")
                     {
                         return RedirectToAction(controllerName: "Home", actionName: "Index");
+                    } else if (username.Roles.Id == "2")
+                    {
+                        return RedirectToAction(controllerName: "Admin", actionName: "Index");
                     }
 
                     return RedirectToAction(controllerName: "Home", actionName: "Index");

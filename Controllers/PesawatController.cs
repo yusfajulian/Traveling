@@ -18,8 +18,8 @@ namespace Travelingyu.Controllers
         }
         public IActionResult Index()
         {
-            var data = _context.Tb_Pesawat.ToList();
-            return View(data);
+            var dtPesawat = _context.Tb_Pesawat.ToList();
+            return View(dtPesawat);
         }
     }
 }

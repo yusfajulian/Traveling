@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace pertemuan1.Helper
+namespace Travelingyu.Helper
 {
     public static class DapatkanIdentitas
     {

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Pesawat>
+﻿@using Travelingyu.Helper
+@model IEnumerable<Pesawat>
 
 <h3 style="color:white">Cek harga Tiket Pesawat anda!</h3>
 <br />
@@ -10,10 +11,10 @@
                 <label for="meal_preference" style="color:white;">Dari</label>
             </div>
             <div class="select-list">
-                <select name="meal_preference" id="meal_preference" class="form-control">
+                <select name="meal_preference" id="dari" class="form-control">
                     @foreach (var item in Model)
                     {
-                        <option value="Vegetarian">@item.Dari</option>
+                        <option value="@item.Dari">@item.Dari</option>
                     }
                 </select>
             </div><br />
@@ -30,24 +31,25 @@
                 <label for="meal_preference" style="color:white;">Ke</label>
             </div>
             <div class="select-list">
-                <select name="meal_preference" id="meal_preference" class="form-control">
+                <select name="meal_preference" id="ke" class="form-control">
                     @foreach (var item in Model)
                     {
-                        <option value="Vegetarian">@item.Ke</option>
+                        <option value="@item.Ke">@item.Ke</option>
                     }
                 </select>
             </div><br />
             <div class="select-list">
                 <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/4/46b8f1c7394fa43aef00959a74f54ec4.svg" width="24" height="24">
                 <label for="meal_preference" style="color:white;">Maskapai</label>
-                <select name="meal_preference" id="meal_preference" class="form-control">
+                <select name="meal_preference" id="maskapai" class="form-control">
                     <option value="Vegetarian">Citiling</option>
                     <option value="Vegetarian">Garuda Indonesia</option>
                     <option value="Vegetarian">Air Asia</option>
                     <option value="Vegetarian">Lion Air</option>
                     <option value="Vegetarian">Batik Air</option>
                 </select>
-            </div>
+            </div><br /><br />
+            <h5 id="hasil" style="color:white;"></h5><br />
         </div>
 
         <div class="form-select col-lg-4 col-sm-12">
@@ -55,20 +57,46 @@
                 <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/a/accfeba7f43edb20e4858113abf756d2.svg" width="24" height="24">
                 <label for="meal_preference" style="color:white;">Jumlah Penumpang</label>
             </div>
-            <input type="number" placeholder="Lebih Dari 7 Tahun" class="form-control" /><br />
+            <input type="number" placeholder="Lebih Dari 7 Tahun" class="form-control" id="jumlah" /><br />
 
             <div class="label-flex">
                 <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/c/c6fbc7de62382bf792c44d7ff99c32ce.svg" width="24" height="24">
                 <label for="meal_preference" style="color:white;">Kelas Penerbangan</label>
             </div>
             <div class="select-list">
-                <select name="meal_preference" id="meal_preference" class="form-control">
+                <select name="meal_preference" id="kelas" class="form-control">
                     <option value="Vegetarian">Bisnis</option>
                     <option value="Vegetarian">Ekonomi</option>
                     <option value="Vegetarian">Eksekutif</option>
                 </select>
             </div><br /><br />
-            <button class="float-lg-right">Cek Harga</button>
+            <button class="float-lg-right" id="but" type="button">Cek Harga</button><br /><br />
+            @{ string cek = User.GetUsername();
+                if (cek != "")
+                {
+                    <button class="float-lg-right" asp-controller="Bus" asp-action="Create" formtarget="_blank">Pesan</button>
+                }
+            }
         </div><br />
     </div>
 </form>
+
+<script>
+    document.getElementById("but");
+    addEventListener("click", tampilkan_harga);
+
+    function tampilkan_harga() {
+        var dari = document.getElementById("dari").value;
+        var ke = document.getElementById("ke").value;
+        var jumlah = document.getElementById("jumlah").value;
+        var kelas = document.getElementById("kelas").value;
+        var hasil = 0;
+
+        if (dari == "Bandung") {
+            if (ke == "Jakarta") {
+                hasil = "Rp." + 300000 * jumlah;
+            }
+        }
+        document.getElementById("hasil").innerHTML = hasil;
+    }
+</script>

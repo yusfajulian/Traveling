@@ -1,6 +1,5 @@
-﻿@using pertemuan1.Helper
+﻿@using Travelingyu.Helper
 @model IEnumerable<Bus>
-
 
 <h3 style="color:white">Cek harga Tiket Bus anda!</h3>
 <br />
@@ -55,7 +54,7 @@
             @{ string cek = User.GetUsername();
                 if (cek != "")
                 {
-                    <button class="float-lg-right" asp-controller="Bus" asp-action="Create">Pesan</button>
+                    <button class="float-lg-right" asp-controller="Bus" asp-action="Create" formtarget="_blank">Pesan</button>
                 }
             }
         </div><br />
@@ -72,27 +71,6 @@
         var jumlah = document.getElementById("jumlah").value;
         var hasil;
 
-       @*if (dari) {
-            if (ke) {
-                @{
-                    foreach (var item in Model)
-                    {
-                        var dari = @item.IdTujuan;
-                        var ke = @item.Jenis;
-
-
-                    }
-                }
-
-        }
-
-        if (dari == "Yogyakarta" && ke == "Bandung" || ke == "Yogyakarta" && dari == "Bandung") {
-            hasil = 130000 * jumlah;
-            document.getElementById("hasil").innerHTML = hasil;
-        } else {
-            document.getElementById("hasil").innerHTML = hasil;
-        }*@
-
         if (dari == "Yogyakarta") {
             if (ke == "Bandung") {
                 hasil = "Rp."+300000 * jumlah;
@@ -108,8 +86,6 @@
                 hasil = "Rp."+455000 * jumlah;
             } else if (ke == "Pekanbaru") {
                 hasil = "Rp."+600000 * jumlah;
-            } else if (ke == "Banda Aceh") {
-                hasil = "Rp."+0;
             } else if (ke == "Lampung") {
                 hasil = "Rp."+400000 * jumlah;
             } else {
@@ -130,8 +106,6 @@
                 hasil = "Rp."+603000 * jumlah;
             } else if (ke == "Pekanbaru") {
                 hasil = "Rp."+625000 * jumlah;
-            } else if (ke == "Banda Aceh") {
-                hasil = "Rp."+0;
             } else if (ke == "Lampung") {
                 hasil = "Rp."+525000 * jumlah;
             } else {
@@ -172,10 +146,6 @@
                 hasil = "Rp."+200000 * jumlah;
             } else if (ke == "Palembang") {
                 hasil = "Rp."+450000 * jumlah;
-            } else if (ke == "Pekanbaru") {
-                hasil = "Rp."+0;
-            } else if (ke == "Banda Aceh") {
-                hasil = "Rp."+0;
             } else if (ke == "Lampung") {
                 hasil = "Rp."+528000 * jumlah;
             } else {

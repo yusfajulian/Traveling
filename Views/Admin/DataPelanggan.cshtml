@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Pelanggan>
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"> Data Pelanggan</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                            <th>
+                                Nama Pelanggan
+                            </th>
+                            <th>
+                                Jenis Kelamin
+                            </th>
+                            <th>
+                                Daerah Asal
+                            </th>
+                            <th>
+                                No KTP
+                            </th>
+                            <th>
+                                Nomor Telp
+                            </th>
+                            <th>
+                                Type
+                            </th>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                       @item.NamaPelanggan
+                                    </td>
+                                    <td>
+                                        @item.JenisKelamin
+                                    </td>
+                                    <td>
+                                        @item.DaerahAsal
+                                    </td>
+                                    <td>
+                                        @item.NomorKtp
+                                    </td>
+                                    <td>
+                                        @item.NomorTelpon
+                                    </td>
+                                    <td>
+                                        @item.Type
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
