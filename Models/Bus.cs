@@ -13,6 +13,6 @@ namespace Travelingyu.Models
         public string NamaSup { get; set; }
         public string Dari { get; set; }
         public string Ke { get; set; }
-        public string Harga { get; set; }
+        public int Harga { get; set; }
     }   
 }

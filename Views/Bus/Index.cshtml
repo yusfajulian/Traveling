@@ -1,5 +1,5 @@
 ﻿@using pertemuan1.Helper
-@model IEnumerable<Tujuan>
+@model IEnumerable<Bus>
 
 
 <h3 style="color:white">Cek harga Tiket Bus anda!</h3>
@@ -15,7 +15,7 @@
                 <select name="meal_preference" id="dari" class="form-control">
                     @foreach (var item in Model)
                     {
-                        <option value="@item.NamaTujuan">@item.NamaTujuan</option>
+                        <option value="@item.Dari">@item.Dari</option>
                     }
                 </select>
             </div><br />
@@ -35,7 +35,7 @@
                 <select name="meal_preference" id="ke" class="form-control">
                     @foreach (var item in Model)
                     {
-                        <option value="@item.NamaTujuan">@item.NamaTujuan</option>
+                        <option value="@item.Ke">@item.Ke</option>
                     }
                 </select>
 

@@ -25,8 +25,8 @@ namespace Travelingyu.Migrations
                     b.Property<string>("Dari")
                         .HasColumnType("text");
 
-                    b.Property<string>("Harga")
-                        .HasColumnType("text");
+                    b.Property<int>("Harga")
+                        .HasColumnType("int");
 
                     b.Property<string>("Ke")
                         .HasColumnType("text");
@@ -39,26 +39,7 @@ namespace Travelingyu.Migrations
                     b.ToTable("Tb_Bus");
                 });
 
-            modelBuilder.Entity("Travelingyu.Models.KelasKereta", b =>
-                {
-                    b.Property<string>("NamaKelas")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<bool>("Chathring")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<int>("Harga")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Kursi")
-                        .HasColumnType("int");
-
-                    b.HasKey("NamaKelas");
-
-                    b.ToTable("Tb_KelasKereta");
-                });
-
-            modelBuilder.Entity("Travelingyu.Models.KelasPenerbangan", b =>
+            modelBuilder.Entity("Travelingyu.Models.Kelas", b =>
                 {
                     b.Property<string>("NamaKelas")
                         .HasColumnType("varchar(767)");
@@ -79,9 +60,6 @@ namespace Travelingyu.Migrations
                     b.Property<string>("IdKereta")
                         .HasColumnType("varchar(767)");
 
-                    b.Property<string>("Berangkat")
-                        .HasColumnType("text");
-
                     b.Property<string>("Dari")
                         .HasColumnType("text");
 
@@ -100,6 +78,19 @@ namespace Travelingyu.Migrations
                     b.HasKey("IdKereta");
 
                     b.ToTable("Tb_Kereta");
+                });
+
+            modelBuilder.Entity("Travelingyu.Models.Maskapai", b =>
+                {
+                    b.Property<string>("IdMaskapai")
+                        .HasColumnType("varchar(767)");
+
+                    b.Property<string>("NamaMaskapai")
+                        .HasColumnType("text");
+
+                    b.HasKey("IdMaskapai");
+
+                    b.ToTable("Tb_Maskapai");
                 });
 
             modelBuilder.Entity("Travelingyu.Models.Pelanggan", b =>
@@ -127,10 +118,6 @@ namespace Travelingyu.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Propesi")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("text");
@@ -145,29 +132,17 @@ namespace Travelingyu.Migrations
                     b.Property<string>("KodeTiket")
                         .HasColumnType("varchar(767)");
 
-                    b.Property<string>("DaerahAsal")
-                        .HasColumnType("text");
-
                     b.Property<string>("KodePelanggan1")
                         .HasColumnType("varchar(767)");
 
-                    b.Property<string>("KodePesawat")
+                    b.Property<string>("MaskapaiIdMaskapai")
                         .HasColumnType("varchar(767)");
 
                     b.Property<string>("NamaKelas1")
                         .HasColumnType("varchar(767)");
 
-                    b.Property<string>("NamaMaskapai")
-                        .HasColumnType("text");
-
-                    b.Property<string>("NamaPelanggan")
-                        .HasColumnType("text");
-
-                    b.Property<string>("NomorTelp")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Tujuan")
-                        .HasColumnType("text");
+                    b.Property<string>("PesawatKodePesawat")
+                        .HasColumnType("varchar(767)");
 
                     b.Property<DateTime>("WaktuKeberangkatan")
                         .HasColumnType("datetime");
@@ -176,11 +151,13 @@ namespace Travelingyu.Migrations
 
                     b.HasIndex("KodePelanggan1");
 
-                    b.HasIndex("KodePesawat");
+                    b.HasIndex("MaskapaiIdMaskapai");
 
                     b.HasIndex("NamaKelas1");
 
-                    b.ToTable("Tb_Transaksi");
+                    b.HasIndex("PesawatKodePesawat");
+
+                    b.ToTable("Tb_TransaksiPesawat");
                 });
 
             modelBuilder.Entity("Travelingyu.Models.Pesawat", b =>
@@ -188,22 +165,24 @@ namespace Travelingyu.Migrations
                     b.Property<string>("KodePesawat")
                         .HasColumnType("varchar(767)");
 
-                    b.Property<string>("JenisPesawat")
+                    b.Property<string>("Dari")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Ke")
                         .HasColumnType("text");
 
                     b.Property<int>("Kursi")
                         .HasColumnType("int");
 
-                    b.Property<string>("NamaMaskapai")
-                        .HasColumnType("text");
+                    b.Property<string>("MaskapaiIdMaskapai")
+                        .HasColumnType("varchar(767)");
 
-                    b.Property<string>("Tujuan")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("WaktuKeberangkatan")
-                        .HasColumnType("datetime");
+                    b.Property<int>("harga")
+                        .HasColumnType("int");
 
                     b.HasKey("KodePesawat");
+
+                    b.HasIndex("MaskapaiIdMaskapai");
 
                     b.ToTable("Tb_Pesawat");
                 });
@@ -226,64 +205,50 @@ namespace Travelingyu.Migrations
                     b.Property<string>("IdTiket")
                         .HasColumnType("varchar(767)");
 
-                    b.Property<string>("IdIdKeretaIdKereta")
+                    b.Property<string>("KelasNamaKelas")
+                        .HasColumnType("varchar(767)");
+
+                    b.Property<string>("KeretaIdKereta")
                         .HasColumnType("varchar(767)");
 
                     b.Property<string>("KodeKodePelangganKodePelanggan")
                         .HasColumnType("varchar(767)");
 
-                    b.Property<string>("NamaKelas1")
-                        .HasColumnType("varchar(767)");
-
                     b.HasKey("IdTiket");
 
-                    b.HasIndex("IdIdKeretaIdKereta");
+                    b.HasIndex("KelasNamaKelas");
+
+                    b.HasIndex("KeretaIdKereta");
 
                     b.HasIndex("KodeKodePelangganKodePelanggan");
 
-                    b.HasIndex("NamaKelas1");
-
-                    b.ToTable("Tb_TiketKA");
+                    b.ToTable("Tb_TransaksiKereta");
                 });
 
-            modelBuilder.Entity("Travelingyu.Models.TrBus", b =>
+            modelBuilder.Entity("Travelingyu.Models.TransaksiBus", b =>
                 {
-                    b.Property<string>("NoTransaksi")
+                    b.Property<string>("IdTr")
                         .HasColumnType("varchar(767)");
 
-                    b.Property<string>("Dari")
-                        .HasColumnType("text");
+                    b.Property<string>("BusKodeBus")
+                        .HasColumnType("varchar(767)");
 
-                    b.Property<int>("Jumlah")
+                    b.Property<string>("IdPelangganKodePelanggan")
+                        .HasColumnType("varchar(767)");
+
+                    b.Property<DateTime>("TanggalBerangkat")
+                        .HasColumnType("datetime");
+
+                    b.Property<int>("harga")
                         .HasColumnType("int");
 
-                    b.Property<string>("Ke")
-                        .HasColumnType("text");
+                    b.HasKey("IdTr");
 
-                    b.Property<string>("KodePelanggan1")
-                        .HasColumnType("varchar(767)");
+                    b.HasIndex("BusKodeBus");
 
-                    b.HasKey("NoTransaksi");
+                    b.HasIndex("IdPelangganKodePelanggan");
 
-                    b.HasIndex("KodePelanggan1");
-
-                    b.ToTable("Tb_TransaksiBus");
-                });
-
-            modelBuilder.Entity("Travelingyu.Models.Tujuan", b =>
-                {
-                    b.Property<string>("IdTujuan")
-                        .HasColumnType("varchar(767)");
-
-                    b.Property<string>("Jenis")
-                        .HasColumnType("text");
-
-                    b.Property<string>("NamaTujuan")
-                        .HasColumnType("text");
-
-                    b.HasKey("IdTujuan");
-
-                    b.ToTable("Tb_Tujuan");
+                    b.ToTable("TransaksiBuss");
                 });
 
             modelBuilder.Entity("Travelingyu.Models.User", b =>
@@ -324,49 +289,70 @@ namespace Travelingyu.Migrations
                         .WithMany()
                         .HasForeignKey("KodePelanggan1");
 
-                    b.HasOne("Travelingyu.Models.Pesawat", "kodePesawat")
+                    b.HasOne("Travelingyu.Models.Maskapai", "Maskapai")
                         .WithMany()
-                        .HasForeignKey("KodePesawat");
+                        .HasForeignKey("MaskapaiIdMaskapai");
 
-                    b.HasOne("Travelingyu.Models.KelasPenerbangan", "NamaKelas")
+                    b.HasOne("Travelingyu.Models.Kelas", "NamaKelas")
                         .WithMany()
                         .HasForeignKey("NamaKelas1");
 
+                    b.HasOne("Travelingyu.Models.Pesawat", "Pesawat")
+                        .WithMany()
+                        .HasForeignKey("PesawatKodePesawat");
+
                     b.Navigation("KodePelanggan");
 
-                    b.Navigation("kodePesawat");
+                    b.Navigation("Maskapai");
 
                     b.Navigation("NamaKelas");
+
+                    b.Navigation("Pesawat");
+                });
+
+            modelBuilder.Entity("Travelingyu.Models.Pesawat", b =>
+                {
+                    b.HasOne("Travelingyu.Models.Maskapai", "Maskapai")
+                        .WithMany()
+                        .HasForeignKey("MaskapaiIdMaskapai");
+
+                    b.Navigation("Maskapai");
                 });
 
             modelBuilder.Entity("Travelingyu.Models.Tiket", b =>
                 {
-                    b.HasOne("Travelingyu.Models.Kereta", "IdIdKereta")
+                    b.HasOne("Travelingyu.Models.Kelas", "Kelas")
                         .WithMany()
-                        .HasForeignKey("IdIdKeretaIdKereta");
+                        .HasForeignKey("KelasNamaKelas");
+
+                    b.HasOne("Travelingyu.Models.Kereta", "Kereta")
+                        .WithMany()
+                        .HasForeignKey("KeretaIdKereta");
 
                     b.HasOne("Travelingyu.Models.Pelanggan", "KodeKodePelanggan")
                         .WithMany()
                         .HasForeignKey("KodeKodePelangganKodePelanggan");
 
-                    b.HasOne("Travelingyu.Models.KelasKereta", "NamaKelas")
-                        .WithMany()
-                        .HasForeignKey("NamaKelas1");
+                    b.Navigation("Kelas");
 
-                    b.Navigation("IdIdKereta");
+                    b.Navigation("Kereta");
 
                     b.Navigation("KodeKodePelanggan");
-
-                    b.Navigation("NamaKelas");
                 });
 
-            modelBuilder.Entity("Travelingyu.Models.TrBus", b =>
+            modelBuilder.Entity("Travelingyu.Models.TransaksiBus", b =>
                 {
-                    b.HasOne("Travelingyu.Models.Pelanggan", "KodePelanggan")
+                    b.HasOne("Travelingyu.Models.Bus", "Bus")
                         .WithMany()
-                        .HasForeignKey("KodePelanggan1");
+                        .HasForeignKey("BusKodeBus");
 
-                    b.Navigation("KodePelanggan");
+                    b.HasOne("Travelingyu.Models.Pelanggan", "IdPelanggan")
+                        .WithMany()
+                        .HasForeignKey("IdPelangganKodePelanggan");
+
+                    b.Navigation("Bus");
+
+                    b.Navigation("IdPelanggan");
                 });
 
             modelBuilder.Entity("Travelingyu.Models.User", b =>

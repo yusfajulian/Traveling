@@ -10,14 +10,10 @@ namespace Travelingyu.Models
     {
         [Key]
         public string KodeTiket { get; set; }
-        public Pesawat kodePesawat { get; set; }
         public Pelanggan KodePelanggan { get; set; }
-        public string DaerahAsal { get; set; }
         public DateTime WaktuKeberangkatan { get; set; }
-        public string Tujuan { get; set; }
-        public string NamaMaskapai { get; set; }
-        public KelasPenerbangan NamaKelas { get; set; }
-        public string NamaPelanggan { get; set; }
-        public string NomorTelp { get; set; }
+        public Pesawat Pesawat { get; set; }
+        public Maskapai Maskapai { get; set; }
+        public Kelas NamaKelas { get; set; }
     }
 }

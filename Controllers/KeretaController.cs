@@ -18,7 +18,7 @@ namespace Travelingyu.Controllers
 
         public IActionResult Index()
         {
-            var data = _context.Tb_Tujuan.Where(bebas => bebas.Jenis == "Kereta");
+            var data = _context.Tb_Kelas.ToList();
             return View(data);
         }
     }

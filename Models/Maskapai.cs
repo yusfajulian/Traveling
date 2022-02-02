@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Travelingyu.Models
 {
-    public class KelasKereta
+    public class Maskapai
     {
         [Key]
-        public string NamaKelas { get; set; }
-        public bool Chathring { get; set; }
-        public int Kursi { get; set; }
-        public int Harga { get; set; }
+        public string IdMaskapai { get; set; }
+        public string NamaMaskapai { get; set; }
     }
 }

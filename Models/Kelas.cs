@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Travelingyu.Models
 {
-    public class KelasPenerbangan
+    public class Kelas
     {
         [Key]
         public string NamaKelas { get; set; }

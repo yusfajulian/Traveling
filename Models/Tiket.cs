@@ -11,7 +11,7 @@ namespace Travelingyu.Models
         [Key]
         public string IdTiket { get; set; }
         public Pelanggan KodeKodePelanggan { get; set; }
-        public Kereta IdIdKereta { get; set; }
-        public KelasKereta NamaKelas { get; set; }
+        public Kereta Kereta { get; set; }
+        public Kelas Kelas { get; set; }
     }
 }

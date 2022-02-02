@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Tujuan>
+﻿@model IEnumerable<Kereta>
 
 <h3 style="color:white">Cek harga Tiket Kereta anda!</h3>
 <br />
@@ -13,7 +13,7 @@
                 <select name="meal_preference" id="meal_preference" class="form-control">
                     @foreach (var item in Model)
                     {
-                        <option value="Vegetarian">@item.NamaTujuan</option>
+                        <option value="Vegetarian">@item.Dari</option>
                     }
                 </select>
             </div><br />
@@ -33,7 +33,7 @@
                 <select name="meal_preference" id="meal_preference" class="form-control">
                     @foreach (var item in Model)
                     {
-                        <option value="Vegetarian">@item.NamaTujuan</option>
+                        <option value="Vegetarian">@item.Ke</option>
                     }
                 </select>
             </div><br />

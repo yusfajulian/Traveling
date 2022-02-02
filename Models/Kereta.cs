@@ -11,7 +11,6 @@ namespace Travelingyu.Models
         [Key]
         public string IdKereta { get; set; }
         public string NamaKereta { get; set; }
-        public string Berangkat { get; set; }
         public string Tiba { get; set; } 
         public string Dari { get; set; }
         public string Ke { get; set; }

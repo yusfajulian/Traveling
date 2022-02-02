@@ -19,7 +19,7 @@ namespace Travelingyu.Controllers
         }
         public IActionResult Index()
         {
-            var data = _context.Tb_Tujuan.Where(bebas => bebas.Jenis == "Bus");
+            var data = _context.Tb_Bus.ToList();
            
             return View(data);
         }

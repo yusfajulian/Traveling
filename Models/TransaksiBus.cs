@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace Travelingyu.Models
 {
-    public class Pesawat
+    public class TransaksiBus
     {
         [Key]
-        public string KodePesawat { get; set; }
-        public Maskapai Maskapai { get; set; }
-        public string Dari { get; set; }
-        public string Ke { get; set; }
-        public int Kursi { get; set; }
+        public string IdTr { get; set; }
+        public Pelanggan IdPelanggan { get; set; }
+        public Bus Bus { get; set; }
+        public DateTime TanggalBerangkat { get; set; }
         public int harga { get; set; }
     }
 }
