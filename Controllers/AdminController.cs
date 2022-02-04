@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Travelingyu.Data;
+using Travelingyu.Models;
+using Travelingyu.Helper;
 
 namespace Travelingyu.Controllers
 {
@@ -30,6 +32,7 @@ namespace Travelingyu.Controllers
         public IActionResult ProfilAdmin()
         {
             var data = _context.Tb_User.ToList();
+
             return View(data);
         }
 

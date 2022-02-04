@@ -19,6 +19,7 @@ namespace Travelingyu.Controllers
         public IActionResult Index()
         {
             var dtPesawat = _context.Tb_Pesawat.ToList();
+            
             return View(dtPesawat);
         }
     }

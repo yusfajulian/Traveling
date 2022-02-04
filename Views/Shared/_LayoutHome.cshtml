@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Destinasi</a>
+                    <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" style="padding-right:80px">Destinasi</a>
                     <div class="dropdown-menu rounded-0 m-0">
                         <a href="testimonial.html" class="dropdown-item">Bali</a>
                         <a href="404.html" class="dropdown-item">Yogyakarta</a>
@@ -80,7 +80,18 @@
                         <a href="404.html" class="dropdown-item">Pulau Komodo</a>
                     </div>
                 </div>
-                <a href="#" class="nav-item text-white" style="padding-right:80px">About</a>
+
+                <div class="nav-item dropdown">
+                    @{ string pes = User.GetUsername();
+                        if (pes != "")
+                        {
+                            <a href="@Url.Action("Create","Bus")">
+                                <button class="float-lg-right" formtarget="_blank">Memesan</button>
+                            </a>
+                        }
+                    }
+                </div>
+
                 @{ string cek = User.GetUsername();
                     if (cek != "")
                     {

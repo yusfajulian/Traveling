@@ -37,7 +37,6 @@
                         <option value="@item.Ke">@item.Ke</option>
                     }
                 </select>
-
             </div><br /><br /><br />
 
             <h5 id="hasil" style="color:white;"></h5><br />
@@ -71,218 +70,29 @@
         var jumlah = document.getElementById("jumlah").value;
         var hasil;
 
-        if (dari == "Yogyakarta") {
-            if (ke == "Bandung") {
-                hasil = "Rp."+300000 * jumlah;
+
+        if (dari == "Bandung") {
+            if (ke == "Yogyakarta") {
+                hasil = "Harga : Rp." + 130000 * jumlah;
             } else if (ke == "Jakarta") {
-                hasil = "Rp."+175000 * jumlah;
+                hasil = "Harga : Rp." + 188000 * jumlah;
             } else if (ke == "Surabaya") {
-                hasil = "Rp."+188000 * jumlah;
+                hasil = "Harga : Rp." + 460000 * jumlah;
             } else if (ke == "Malang") {
-                hasil = "Rp."+170000 * jumlah;
+                hasil = "Harga : Rp." + 280000 * jumlah;
             } else if (ke == "Semarang") {
-                hasil ="Rp."+ 75000 * jumlah;
+                hasil = "Harga : Rp." + 236000 * jumlah;
             } else if (ke == "Palembang") {
-                hasil = "Rp."+455000 * jumlah;
+                hasil = "Harga : Rp." + 603000 * jumlah;
             } else if (ke == "Pekanbaru") {
-                hasil = "Rp."+600000 * jumlah;
+                hasil = "Harga : Rp." + 625000 * jumlah;
             } else if (ke == "Lampung") {
-                hasil = "Rp."+400000 * jumlah;
+                hasil = "Harga : Rp." + 525000 * jumlah;
             } else {
-                hasil = "Rp."+0;
+                hasil = "";
             }
-        } else if (dari == "Bandung") {
-            if (ke == "Yogyakarta") {
-                hasil = "Rp."+130000 * jumlah;
-            } else if (ke == "Jakarta") {
-                hasil = "Rp."+188000 * jumlah;
-            } else if (ke == "Surabaya") {
-                hasil = "Rp."+460000 * jumlah;
-            } else if (ke == "Malang") {
-                hasil = "Rp."+280000 * jumlah;
-            } else if (ke == "Semarang") {
-                hasil = "Rp."+236000 * jumlah;
-            } else if (ke == "Palembang") {
-                hasil = "Rp."+603000 * jumlah;
-            } else if (ke == "Pekanbaru") {
-                hasil = "Rp."+625000 * jumlah;
-            } else if (ke == "Lampung") {
-                hasil = "Rp."+525000 * jumlah;
-            } else {
-                hasil = "Rp."+0;
-            }
-        } else if (dari == "Jakarta") {
-            if (ke == "Yogyakarta") {
-                hasil = "Rp."+247000 * jumlah;
-            } else if (ke == "Bandung") {
-                hasil ="Rp."+ 99000 * jumlah;
-            } else if (ke == "Surabaya") {
-                hasil = "Rp."+290000 * jumlah;
-            } else if (ke == "Malang") {
-                hasil = "Rp."+360000 * jumlah;
-            } else if (ke == "Semarang") {
-                hasil = "Rp."+225000 * jumlah;
-            } else if (ke == "Palembang") {
-                hasil = "Rp."+551000 * jumlah;
-            } else if (ke == "Pekanbaru") {
-                hasil = "Rp."+280000 * jumlah;
-            } else if (ke == "Banda Aceh") {
-                hasil = "Rp."+880000 * jumlah;
-            } else if (ke == "Lampung") {
-                hasil = "Rp."+284000 * jumlah;
-            } else {
-                hasil = "Rp."+0;
-            }
-        } else if (dari == "Surabaya") {
-            if (ke == "Yogyakarta") {
-                hasil = "Rp."+188000 * jumlah;
-            } else if (ke == "Bandung") {
-                hasil = "Rp."+250000 * jumlah;
-            } else if (ke == "Jakarta") {
-                hasil = "Rp."+285000 * jumlah;
-            } else if (ke == "Malang") {
-                hasil = "Rp."+103000 * jumlah;
-            } else if (ke == "Semarang") {
-                hasil = "Rp."+200000 * jumlah;
-            } else if (ke == "Palembang") {
-                hasil = "Rp."+450000 * jumlah;
-            } else if (ke == "Lampung") {
-                hasil = "Rp."+528000 * jumlah;
-            } else {
-                hasil = "Rp."+0;
-            }
-        } else if (dari == "Malang") {
-            if (ke == "Yogyakarta") {
-                hasil = "Rp."+150000 * jumlah;
-            } else if (ke == "Bandung") {
-                hasil = "Rp."+270000 * jumlah;
-            } else if (ke == "Jakarta") {
-                hasil = "Rp."+316000 * jumlah;
-            } else if (ke == "Surabaya") {
-                hasil = "Rp."+118000 * jumlah;
-            } else if (ke == "Semarang") {
-                hasil = "Rp."+170000 * jumlah;
-            } else if (ke == "Palembang") {
-                hasil = "Rp."+0;
-            } else if (ke == "Pekanbaru") {
-                hasil = "Rp."+0;
-            } else if (ke == "Banda Aceh") {
-                hasil = "Rp."+0;
-            } else if (ke == "Lampung") {
-                hasil = "Rp."+513000 * jumlah;
-            } else {
-                hasil = "Rp."+0;
-            }
-        } else if (dari == "Semarang") {
-            if (ke == "Yogyakarta") {
-                hasil ="Rp."+ 85000 * jumlah;
-            } else if (ke == "Bandung") {
-                hasil = "Rp."+250000 * jumlah;
-            } else if (ke == "Jakarta") {
-                hasil = "Rp."+170000 * jumlah;
-            } else if (ke == "Surabaya") {
-                hasil = "Rp."+200000 * jumlah;
-            } else if (ke == "Malang") {
-                hasil = "Rp."+210000 * jumlah;
-            } else if (ke == "Palembang") {
-                hasil = "Rp."+600000 * jumlah;
-            } else if (ke == "Pekanbaru") {
-                hasil = "Rp."+0;
-            } else if (ke == "Banda Aceh") {
-                hasil = "Rp."+0;
-            } else if (ke == "Lampung") {
-                hasil = "Rp."+500000 * jumlah;
-            } else {
-                hasil = "Rp."+0;
-            }
-        } else if (dari == "Palembang") {
-            if (ke == "Yogyakarta") {
-                hasil = "Rp."+600000 * jumlah;
-            } else if (ke == "Bandung") {
-                hasil = "Rp."+500000 * jumlah;
-            } else if (ke == "Jakarta") {
-                hasil = "Rp."+500000 * jumlah;
-            } else if (ke == "Surabaya") {
-                hasil = "Rp."+0;
-            } else if (ke == "Malang") {
-                hasil = "Rp."+0;
-            } else if (ke == "Semarang") {
-                hasil = "Rp."+600000 * jumlah;
-            } else if (ke == "Pekanbaru") {
-                hasil = "Rp."+300000 * jumlah;
-            } else if (ke == "Banda Aceh") {
-                hasil = "Rp."+0;
-            } else if (ke == "Lampung") {
-                hasil = "Rp."+250000 * jumlah;
-            } else {
-                hasil = "Rp."+0;
-            }
-        } else if (dari == "Pekanbaru") {
-            if (ke == "Yogyakarta") {
-                hasil = "Rp."+650000 * jumlah;
-            } else if (ke == "Bandung") {
-                hasil = "Rp."+567000 * jumlah;
-            } else if (ke == "Jakarta") {
-                hasil = "Rp."+600000 * jumlah;
-            } else if (ke == "Surabaya") {
-                hasil = "Rp."+0;
-            } else if (ke == "Malang") {
-                hasil = "Rp."+0;
-            } else if (ke == "Semarang") {
-                hasil = "Rp."+0;
-            } else if (ke == "Palembang") {
-                hasil = "Rp."+459000 * jumlah;
-            } else if (ke == "Banda Aceh") {
-                hasil = "Rp."+0;
-            } else if (ke == "Lampung") {
-                hasil = "Rp."+490000 * jumlah;
-            } else {
-                hasil = "Rp."+0;
-            }
-        } else if (dari == "Banda Aceh Pekanbaru") {
-            if (ke == "Yogyakarta") {
-                hasil = "Rp."+0;
-            } else if (ke == "Bandung") {
-                hasil = "Rp."+0;
-            } else if (ke == "Jakarta") {
-                hasil = "Rp."+0;
-            } else if (ke == "Surabaya") {
-                hasil = "Rp."+0;
-            } else if (ke == "Malang") {
-                hasil = "Rp."+0;
-            } else if (ke == "Semarang") {
-                hasil = "Rp."+0;
-            } else if (ke == "Palembang") {
-                hasil = "Rp."+0;
-            } else if (ke == "Pekanbaru") {
-                hasil = "Rp."+0;
-            } else if (ke == "Lampung") {
-                hasil = "Rp."+0;
-            } else {
-                hasil = "Rp."+0;
-            }
-        } else if (dari == "Lampung") {
-            if (ke == "Yogyakarta") {
-                hasil = "Rp."+400000 * jumlah;
-            } else if (ke == "Bandung") {
-                hasil = "Rp."+250000 * jumlah;
-            } else if (ke == "Jakarta") {
-                hasil = "Rp."+400000 * jumlah;
-            } else if (ke == "Surabaya") {
-                hasil = "Rp."+486000 * jumlah;
-            } else if (ke == "Malang") {
-                hasil = "Rp."+486000 * jumlah;
-            } else if (ke == "Semarang") {
-                hasil = "Rp."+369000 * jumlah;
-            } else if (ke == "Palembang") {
-                hasil = "Rp."+250000 * jumlah;
-            } else if (ke == "Banda Aceh") {
-                hasil = "Rp."+0;
-            } else if (ke == "Pekanbaru") {
-                hasil = "Rp."+468000 * jumlah;
-            } else {
-                hasil = "Rp."+0;
-            }
+        } else {
+            document.getElementById("hasil").innerHTML = "Tidak Terdeteksi";
         }
         document.getElementById("hasil").innerHTML =hasil;
     }

@@ -71,12 +71,6 @@
                 </select>
             </div><br /><br />
             <button class="float-lg-right" id="but" type="button">Cek Harga</button><br /><br />
-            @{ string cek = User.GetUsername();
-                if (cek != "")
-                {
-                    <button class="float-lg-right" asp-controller="Bus" asp-action="Create" formtarget="_blank">Pesan</button>
-                }
-            }
         </div><br />
     </div>
 </form>
@@ -92,10 +86,54 @@
         var kelas = document.getElementById("kelas").value;
         var hasil = 0;
 
-        if (dari == "Bandung") {
-            if (ke == "Jakarta") {
-                hasil = "Rp." + 300000 * jumlah;
+        if (dari == "Soekarno Hatta") {
+
+            if (ke == "Sultan Mahmud Badarudin 2") {
+                hasil = "Rp." + 405000 * jumlah;
+            } else if (ke == "Syamsudin Noor") {
+                hasil = "Rp." + 843000 * jumlah;
+            } else if (ke == "Kualanamu") {
+                hasil = "Rp." + 678000 * jumlah;
+            } else if (ke == "Husein Sastranegara") {
+                hasil = "Rp." + 1100000 * jumlah;
+            } else if (ke == "Sultan Syarif Kasim II") {
+                hasil = "Rp." + 620000 * jumlah;
+            } else if (ke == "Ngurah Rai") {
+                hasil = "Rp." + 550000 * jumlah;
+            } else if (ke == "Juanda") {
+                hasil = "Rp." + 635000 * jumlah;
+            } else if (ke == "Sultan Hasanudin") {
+                hasil = "Rp." + 770000 * jumlah;
+            } else if (ke == "Sultan Aji Muhammad sulaiman") {
+                hasil = "Rp." + 919000 * jumlah;
+            } else if (ke == "Adisutjipto") {
+                hasil = "Rp." + 446000 * jumlah;
             }
+
+        } else if (dari == "Husein Sastranegara Hatta") {
+            if (ke == "Soekarno Hatta") {
+                hasil = "Rp." + 1200000 * jumlah;
+            } else if (ke == "Syamsudin Noor") {
+                hasil = "Rp." + 843000 * jumlah;
+            } else if (ke == "Kualanamu") {
+                hasil = "Rp." + 908000 * jumlah;
+            } else if (ke == "Husein Sastranegara") {
+                hasil = "Rp." + 1100000 * jumlah;
+            } else if (ke == "Sultan Syarif Kasim II") {
+                hasil = "Rp." + 670000 * jumlah;
+            } else if (ke == "Ngurah Rai") {
+                hasil = "Rp." + 570000 * jumlah;
+            } else if (ke == "Juanda") {
+                hasil = "Rp." + 735000 * jumlah;
+            } else if (ke == "Sultan Hasanudin") {
+                hasil = "Rp." + 870000 * jumlah;
+            } else if (ke == "Sultan Aji Muhammad sulaiman") {
+                hasil = "Rp." + 909000 * jumlah;
+            } else if (ke == "Adisutjipto") {
+                hasil = "Rp." + 405000 * jumlah;
+            }
+        } else {
+            document.getElementById("hasil").innerHTML = "Tidak Terdeteksi";
         }
         document.getElementById("hasil").innerHTML = hasil;
     }

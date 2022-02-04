@@ -40,7 +40,7 @@ namespace Travelingyu.Controllers
                 _context.SaveChanges();
                 await _context.SaveChangesAsync();
 
-                return Redirect("Index");
+                return RedirectToAction(actionName: "Index", controllerName: "Home");
             }
             return View(data);
         }

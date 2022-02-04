@@ -31,7 +31,8 @@ namespace Travelingyu.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                var deklarRole = _context.Tb_Roles.Where(x => x.Id == "1").FirstOrDefault();
+                data.Roles = deklarRole;
 
                 _context.Add(data);
                 _context.SaveChanges();
