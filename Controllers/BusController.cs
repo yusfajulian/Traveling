@@ -40,7 +40,20 @@ namespace Travelingyu.Controllers
                 _context.SaveChanges();
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction(actionName: "Index", controllerName: "Home");
+                return View("Pesan");
+            }
+            return View(data);
+        }
+
+        public async Task<IActionResult> PesanAsync(TransaksiBus data)
+        {
+            if (ModelState.IsValid)
+            {
+                data.IdTr = "1";
+
+                _context.Add(data);
+                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             return View(data);
         }
